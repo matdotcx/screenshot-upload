@@ -45,7 +45,7 @@ Uses macOS launchd `WatchPaths` to monitor a folder—no Automator folder action
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/youruser/screenshot-upload.git
+   git clone https://github.com/matdotcx/screenshot-upload.git
    cd screenshot-upload
    ```
 
