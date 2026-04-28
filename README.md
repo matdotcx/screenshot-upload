@@ -141,6 +141,23 @@ ssh your-host "echo ok"
 
 If you're using `UserKnownHostsFile /dev/null` in your SSH config, remove it—launchd jobs need persistent known_hosts.
 
+### Agent runs manually but not automatically?
+
+macOS protects `~/Documents` with TCC (Transparency, Consent, and Control). The launchd agent may be silently blocked from monitoring or accessing the watch folder.
+
+Grant **Full Disk Access** to `/bin/bash`:
+
+1. Open **System Settings > Privacy & Security > Full Disk Access**
+2. Click `+`, press Cmd+Shift+G, type `/bin/bash`, and add it
+3. Ensure the toggle is on
+
+Then reload the agent:
+
+```bash
+launchctl unload ~/Library/LaunchAgents/org.iaconelli.screenshot-upload.plist
+launchctl load ~/Library/LaunchAgents/org.iaconelli.screenshot-upload.plist
+```
+
 ### Permission denied on remote?
 
 ```bash
